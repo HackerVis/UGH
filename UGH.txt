@@ -1,5 +1,5 @@
 import os
-movieInput = input("What Movie?: \n")
+movieInput = input("What Movie?: \n").replace(" ", "")
 directory = "/"
 movies = {}
 moviesList = []
@@ -12,7 +12,7 @@ for movie in os.listdir(directory):
 			
 
 			movies[movie.split(".")[0]] = pathToMovie
-			moviesList.append(movie.replace("_", " ").replace(" ",""))
+			moviesList.append(movie.replace("_", " "))
 
 			print("Movie: " + movie.split(".")[0] + " Location: " + pathToMovie)
 
@@ -20,8 +20,6 @@ print(movies)
 # FOR JARVIS: change movieToPlay to command.split("play")[1]
 movieToPlay = movieInput
 if(movieToPlay in moviesList):
-	if(" " in movies[movieToPlay]):
-		os.system("mv " + directory + movies[movieToPlay] + " " + directory + movies[movieToPlay].replace(" ", ""))	
 	os.system("vlc " + movies[movieToPlay])
 else:
 	print("That does not exist")
