@@ -10,6 +10,7 @@ for movie in os.listdir(directory):
 		if(movie.split(".")[1] in filetypes):
 			print(movie.split(".")[1])
 			pathToMovie = directory+movie
+
 			movies[movie.split('.')[0]] = pathToMovie
 			moviesList.append(movie.split('.')[0].replace("_", " "))
 print(moviesList)
@@ -19,4 +20,10 @@ if(movieToPlay in moviesList):
 	os.system("vlc" + movies[movieToPlay])
 else:
 	print('That does not exis')
+
+print("Debugging: ")
+# print("Movie = " + Movie)
+print("Movie To Play = " + movieToPlay)
+print("pathToMovie = " + pathToMovie)
+
 # FOR JARVIS: change print to talkToMe
