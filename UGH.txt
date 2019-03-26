@@ -11,11 +11,12 @@ for movie in os.listdir(directory):
 			print(movie.split(".")[1])
 			pathToMovie = directory+movie
 			movies[movie.split('.')[0]] = pathToMovie
-			moviesList.append(movie.split('.')[0].replace("_", " ").upper())
+			moviesList.append(movie.split('.')[0].replace("_", " "))
+print(moviesList)
 # FOR JARVIS: change movieToPlay to command.split("play")[1]
 movieToPlay = movieInput
 if(movieToPlay in moviesList):
-	os.system(movies[movieToPlay])
+	os.system("vlc" + movies[movieToPlay])
 else:
 	print('That does not exis')
 # FOR JARVIS: change print to talkToMe
